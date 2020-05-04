@@ -1,0 +1,45 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int t;
+    cin>>t;
+    while(t--){
+        int size, q;
+        cin>>size>>q;
+        char s[size];
+        cin>>s;
+
+        ll alpha[26]={0};
+        for(int i=0; i<size; i++){
+            alpha[s[i]-'a']++;
+        }
+
+        while(q--){
+            ll c;
+            cin>>c;
+            if(c==0) {
+                cout<<size<<endl;
+                continue;
+            }
+            int count = 0;
+            ll sum = 0;
+            for(int i=0; i<26; i++){
+                if(alpha[i]>c) {
+                    count++;
+                    sum+=alpha[i];
+                }
+            }
+            ll ans = sum-count*c;
+            if(ans>0) cout<<ans<<endl;
+            else cout<<0<<endl;
+        }
+
+    }
+    return 0;
+}
