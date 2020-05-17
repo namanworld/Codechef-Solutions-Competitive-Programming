@@ -1,0 +1,39 @@
+#include <iostream>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+bool collide(string& s, int sa, int sb){
+    int start = find(s.begin(), s.end(), 'A') - s.begin();
+    int end = find(s.begin(), s.end(), 'B') - s.begin();
+
+    while(start<=end){
+        if(start==end) return 1;
+        start+=sa;
+        end-=sb;
+    }
+    return 0;
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    int t;
+    cin>>t;
+    while(t--){
+        string s;
+        cin>>s;
+
+        int sa, sb;
+        cin>>sa>>sb;
+
+        if(!collide(s, sa, sb)) cout<<"safe\n";
+        else cout<<"unsafe\n";
+
+    }
+
+    return 0;
+}
