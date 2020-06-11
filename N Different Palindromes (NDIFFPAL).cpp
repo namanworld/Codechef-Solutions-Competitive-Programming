@@ -28,28 +28,34 @@ int main()
     return 0;
 }
 
-#include <bits/stdc++.h>
+
+BEST APPROACH:
+
+#include <iostream>
+#include <algorithm>
+#include <cassert>
 
 using namespace std;
 
-const int MAXN = 1e5+100;
+const int MAXN = 10000 + 100;
 const int MAXK = 100;
 
 int tn;
 int dp[MAXK][MAXN], par[MAXK][MAXN];
 
-int main()
-{
-    memset(dp, 0, sizeof(dp));
+int main(int argc, const char * argv[]) {
+    
+    for(int i = 0; i < MAXK; i++)
+        for(int j = 0; j < MAXN; j++)
+            dp[i][j] = 0;
     dp[0][0] = 1;
-    for(int i=0; i+1<MAXK; i++)
-        for(int j=0; j<MAXN; j++)
-    if(dp[i][j]){
+    for(int i = 0; i + 1 < MAXK; i++) for(int j = 0; j < MAXN; j++) if (dp[i][j]) {
         for(int k = 1; j + k * (k + 1) / 2 < MAXN; k++) {
             dp[i + 1][j + k * (k + 1) / 2] = 1;
             par[i + 1][j + k * (k + 1) / 2] = k;
         }
     }
+    
     cin >> tn;
     while (tn--) {
         int n;
@@ -72,4 +78,3 @@ int main()
     }
     return 0;
 }
-
