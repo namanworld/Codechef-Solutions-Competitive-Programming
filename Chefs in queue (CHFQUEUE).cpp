@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #define int long long
 using namespace std;
+
 int MOD = 1e9+7;
 int fearx(int arr[], int n){
     stack<pair<int, int> > s;
