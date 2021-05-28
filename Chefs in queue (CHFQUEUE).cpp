@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 #define int long long
-#define MOD 1000000007
 using namespace std;
 
+int MOD = 1e9+7;
 int fearx(int arr[], int n){
     stack<pair<int, int> > s;
     int fear = 1;
